@@ -3,10 +3,14 @@ Project Roadmap
 Sprint #1: Checkmarks when completed
 ***
 
--[x] Create a Github account
--[x] Create a repository under KSU-HMI organization
+-[x] Create a Github account.
+
+-[x] Create a repository under KSU-HMI organization.
+
 -[x] Add the README.md file to the repository.
+
 -[x] Add the LICENSE file to the repository.
+
 -[x]Access Github for code repositories of similar topic which can be modified.
          
     1.https://github.com/EHLeRoux/SickelCellDisease.git.
