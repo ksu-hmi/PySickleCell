@@ -21,9 +21,13 @@ Sprint #2: Checkmarks when completed
 ***  
 
 -[] Each member in a team should make updates in repository.
+
 -[]Add commit messages, explaining the changes or updates made.
+
 -[] Each member should make atleast 6 code changes.
+
 -[] Update the progress of the project with checkmarks after completing the task in the roadmap file.
+
 -[] Paste the URL's to code commits.
 
 ***
@@ -31,4 +35,5 @@ Sprint #3: Checkmarks when completed
 ***  
 
 -[] Present a PPT.
+
 -[] Each team member should upload a copy of PPT in Github repository.
