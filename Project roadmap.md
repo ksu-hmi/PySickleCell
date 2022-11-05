@@ -13,11 +13,13 @@ Sprint #1: Checkmarks when completed
     2.https://github.com/cbmi-uthsc/pySickleCell.git
     3.https://github.com/Mahsalo/Cell-Detection-Deep-Learning.git
     4.https://github.com/nuilewis/sickler.git.
+    
 -[] Attempt any codes.
 
 ***  
 Sprint #2: Checkmarks when completed
 ***  
+
 -[] Each member in a team should make updates in repository.
 -[]Add commit messages, explaining the changes or updates made.
 -[] Each member should make atleast 6 code changes.
@@ -27,5 +29,6 @@ Sprint #2: Checkmarks when completed
 ***
 Sprint #3: Checkmarks when completed
 ***  
+
 -[] Present a PPT.
 -[] Each team member should upload a copy of PPT in Github repository.
