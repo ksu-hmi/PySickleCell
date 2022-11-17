@@ -1,0 +1,4 @@
+import pandas as pd
+
+df = pd.read_excel(r"C:\Users\haree\OneDrive - Western Kentucky University\Desktop\annotations.xlsx")
+print(df)
