@@ -18,13 +18,13 @@ Sprint #1: Checkmarks when completed
     3.https://github.com/Mahsalo/Cell-Detection-Deep-Learning.git
     4.https://github.com/nuilewis/sickler.git.
     
--[] Attempt any codes.
+-[X] Attempt any codes.
 
 ***  
 Sprint #2: Checkmarks when completed
 ***  
 
--[] Each member in a team should make updates in repository.
+-[X] Each member in a team should make updates in repository.
 
 -[]Add commit messages, explaining the changes or updates made.
 
