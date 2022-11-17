@@ -202,9 +202,9 @@ cdna = applyGammaRadiation(dna)
 print(cdna+" (DNA after radiation)")
 count = detectMutation(dna, cdna)
 
-# if count=40 it means all the characters of the 2 strands match
+# if count=30 it means all the characters of the 2 strands match
 # hence no mutation
-if count == 40:
+if count == 30:
 	print("Mutation not detected")
 else:
 	
