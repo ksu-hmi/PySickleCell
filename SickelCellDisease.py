@@ -212,3 +212,4 @@ else:
 	pos = "^"
 	print(pos.rjust(count+2))
 	print("Mutation detected at pos = ", (count+2))
+
