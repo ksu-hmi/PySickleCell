@@ -12,7 +12,7 @@ def translate(seq, dict): #translate takes the sequence of codon's as argument a
         word = seq[start:end] #Creates a word of three letters 
        # print()
         #print("Your word is: ", word)
-        if end >= len(seq) + 1: 
+        if end >= len(seq) + 2: 
             pass
         
         if word not in dict.keys(): #If the word does not exist in the library changes the word / key to X 
@@ -34,7 +34,7 @@ def mutate(filepath): #function takes a filepath name as an argument
     print("--------------------------------------------------------")
     with open (filepath, "r+") as f, open (normalDNA, "a+") as nf1: #Opens up the text file and creates a new file normalDNA.txt
         file1Data = f.read().replace('\n', '') #replaces the newline spacing with nothing to make it into one string
-        newFile1Data = file1Data.replace("a", "A") #replaces small letter a with a upper case A
+        newFile1Data = file1Data.replace("a", "T") #replaces small letter a with a upper case T
         
         print(newFile1Data)
         nf1.write(newFile1Data) #Prints the new codon's with the replaced letter to a text file called normalDNA.txt
@@ -44,7 +44,7 @@ def mutate(filepath): #function takes a filepath name as an argument
         print("--------------------------------------------------------")
         with open (filepath, "r+") as f, open (mutatedDNA, "a+") as nf2: #Same principle as the previous opening of file
             file2Data = f.read().replace('\n', '') #removes the new line spacing
-            newFile2Data = file2Data.replace("a", "T" ) #replaces small letter a with the capital letter T
+            newFile2Data = file2Data.replace("a", "U" ) #replaces small letter a with the capital letter U
                 
             print(newFile2Data)   
             nf2.write(newFile2Data) #Writes out the new codon onto a text file called mutatedDNA.txt
@@ -119,7 +119,7 @@ import random
 def generateDNASequence():
 	
 	# list of available DNA bases
-	l = ['C', 'A', 'G', 'T']
+	l = ['C', 'A', 'G', 'T', 'U']
 	res = ""
 	for i in range(0, 40):
 		# creating the DNA strand by appending
@@ -135,7 +135,7 @@ def applyGammaRadiation(dna):
 	cdna = ''
 	
 	# list of available DNA bases
-	l = ['C', 'A', 'G', 'T']
+	l = ['C', 'A', 'G', 'T', 'U']
 	
 	# if the possibility of mutation generated randomly
 	# is >100 then mutation happens
@@ -185,7 +185,7 @@ def detectMutation(dna, cdna):
 		# if the character at the same index match
 		# then the count is increased
 		if x == y:
-			count = count + 1
+			count = count + 2
 		
 		# incase of mismatch the loop is broken
 		else:
@@ -210,5 +210,5 @@ else:
 	
 	# ^ denotes the position of mutation
 	pos = "^"
-	print(pos.rjust(count+1))
-	print("Mutation detected at pos = ", (count+1))
+	print(pos.rjust(count+2))
+	print("Mutation detected at pos = ", (count+2))
