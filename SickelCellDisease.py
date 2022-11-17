@@ -10,10 +10,10 @@ def translate(seq, dict): #translate takes the sequence of codon's as argument a
        # print()
         #print("Your word is: ", word)
         if end >= len(seq) + 1: 
-            break
+            pass
         
         if word not in dict.keys(): #If the word does not exist in the library changes the word / key to X 
-            word = "X"
+            word = "Cancel"
         
         for key in dict.keys(): #Whatever the word is at time of the loop, will go through the dictionary and print out the value of the key
             
@@ -37,7 +37,7 @@ def mutate(filepath): #function takes a filepath name as an argument
         nf1.write(newFile1Data) #Prints the new codon's with the replaced letter to a text file called normalDNA.txt
         
         print("--------------------------------------------------------")
-        print("MutatedDNA printout:")
+        print("Sickled printout:")
         print("--------------------------------------------------------")
         with open (filepath, "r+") as f, open (mutatedDNA, "a+") as nf2: #Same principle as the previous opening of file
             file2Data = f.read().replace('\n', '') #removes the new line spacing
@@ -59,31 +59,46 @@ if __name__ == "__main__":
     #Creation of variables to make the text documents easier to use in the functions
     filepath = "DNA.txt"
     normalDNA = "normalDNA.txt"
-    mutatedDNA = "mutatedDNA.txt"
+    mutatedDNA = "SickledDNA.txt"
     my_dict = { #Creation of the dictionary from which the codon's will be read and then printing out the value of the key
-            
-        "ATT" : "Isoleucine",
-        "ATC" : "Isoleucine",
-        "ATA" : "Isoleucine",
-        "CTT" : "Leucine",
-        "CTC" : "Leucine",
-        "CTA" : "Leucine",
-        "CTG" : "Leucine",
-        "TTA" : "Leucine",
-        "TTG" : "Leucine",
-        "GTT" : "Valine",
-        "GTC" : "Valine",
-        "GTA" : "Valine",
-        "GTG" : "Valine",
-        "TTT" : "Phenylalanine",
-        "TTC" : "Phenylalanine",
-        "ATG" : "Methionine",
-        "X"   : "X"
+
+
+        'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
+
+        'ACA':'T', 'ACC':'T', 'ACG':'T', 'ACT':'T',
+
+        'AAC':'N', 'AAT':'N', 'AAA':'K', 'AAG':'K',
+
+        'AGC':'S', 'AGT':'S', 'AGA':'R', 'AGG':'R',                 
+
+        'CTA':'L', 'CTC':'L', 'CTG':'L', 'CTT':'L',
+
+        'CCA':'P', 'CCC':'P', 'CCG':'P', 'CCT':'P',
+
+        'CAC':'H', 'CAT':'H', 'CAA':'Q', 'CAG':'Q',
+
+        'CGA':'R', 'CGC':'R', 'CGG':'R', 'CGT':'R',
+
+        'GTA':'V', 'GTC':'V', 'GTG':'V', 'GTT':'V',
+
+        'GCA':'A', 'GCC':'A', 'GCG':'A', 'GCT':'A',
+
+        'GAC':'D', 'GAT':'D', 'GAA':'E', 'GAG':'E',
+
+        'GGA':'G', 'GGC':'G', 'GGG':'G', 'GGT':'G',
+
+        'TCA':'S', 'TCC':'S', 'TCG':'S', 'TCT':'S',
+
+        'TTC':'F', 'TTT':'F', 'TTA':'L', 'TTG':'L',
+
+        'TAC':'Y', 'TAT':'Y', 'TAA':'_', 'TAG':'_',
+
+        'TGC':'C', 'TGT':'C', 'TGA':'_', 'TGG':'W',
         
         }
     
    
-    #seq = "ATTATTATTYUIIUYIYUIATTIUYATTIUYUYATTTTATATTTATAATTTTATATTTATAT"
+    #seq = ""
     #translate(seq, my_dict)
     
     mutate(filepath) #Calls the mutate function to start the replacement of the letters
@@ -125,7 +140,7 @@ def applyGammaRadiation(dna):
 		
 		# the position where mutation will take place
 		# is chosen randomly
-		changepos = random.randint(0, 39)
+		changepos = random.randint(0, 49)
 		dl = []
 		
 		# the characters in DNA strand is converted to list
@@ -158,7 +173,7 @@ def applyGammaRadiation(dna):
 
 # function to detect mutation
 def detectMutation(dna, cdna):
-	count = 0
+	count = 3
 	
 	# x and y take each character in dna and cdna
 	# for character by character comparison
@@ -187,10 +202,7 @@ count = detectMutation(dna, cdna)
 # if count=40 it means all the characters of the 2 strands match
 # hence no mutation
 if count == 40:
-	print("No Mutation detected")
-
-# if count is less than 50
-# it means mutation has occurred
+	print("Mutation not detected")
 else:
 	
 	# ^ denotes the position of mutation
