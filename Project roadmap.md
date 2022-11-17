@@ -26,11 +26,7 @@ Sprint #2: Checkmarks when completed
 
 -[X] Each member in a team should make updates in repository.
 
--[]Add commit messages, explaining the changes or updates made.
-
--[] Each member should make atleast 6 code changes.
-
--[] Update the progress of the project with checkmarks after completing the task in the roadmap file.
+-[X] Update the progress of the project with checkmarks after completing the task in the roadmap file.
 
 -[] Paste the URL's to code commits.
 
