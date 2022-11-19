@@ -1,9 +1,3 @@
-#This machine learning program is useful for predicting sickle cell or other blood disorders
-#This will also classification problems the servity of the person sickle cell
-#First you will install all usefull for the library
-import pandas as pd
-df = pd.read_excel(r"C:\Users\haree\OneDrive - Western Kentucky University\Desktop\annotations.xlsx")
-print(df)
 def translate(seq, dict): #translate takes the sequence of codon's as argument and the dictionary from which the amino acids will be fetched
     start = 0 #starting point of the word selection
     end = 3 #Ending point of the word selection, as codon's are represented by three characters
@@ -14,11 +8,11 @@ def translate(seq, dict): #translate takes the sequence of codon's as argument a
         word = seq[start:end] #Creates a word of three letters 
        # print()
         #print("Your word is: ", word)
-        if end >= len(seq) + 2: 
-            pass
+        if end >= len(seq) + 1: 
+            break
         
         if word not in dict.keys(): #If the word does not exist in the library changes the word / key to X 
-            word = "Cancel"
+            word = "X"
         
         for key in dict.keys(): #Whatever the word is at time of the loop, will go through the dictionary and print out the value of the key
             
@@ -36,17 +30,17 @@ def mutate(filepath): #function takes a filepath name as an argument
     print("--------------------------------------------------------")
     with open (filepath, "r+") as f, open (normalDNA, "a+") as nf1: #Opens up the text file and creates a new file normalDNA.txt
         file1Data = f.read().replace('\n', '') #replaces the newline spacing with nothing to make it into one string
-        newFile1Data = file1Data.replace("a", "T") #replaces small letter a with a upper case T
+        newFile1Data = file1Data.replace("a", "A") #replaces small letter a with a upper case A
         
         print(newFile1Data)
         nf1.write(newFile1Data) #Prints the new codon's with the replaced letter to a text file called normalDNA.txt
         
         print("--------------------------------------------------------")
-        print("Sickled printout:")
+        print("MutatedDNA printout:")
         print("--------------------------------------------------------")
         with open (filepath, "r+") as f, open (mutatedDNA, "a+") as nf2: #Same principle as the previous opening of file
             file2Data = f.read().replace('\n', '') #removes the new line spacing
-            newFile2Data = file2Data.replace("a", "U" ) #replaces small letter a with the capital letter U
+            newFile2Data = file2Data.replace("a", "T" ) #replaces small letter a with the capital letter T
                 
             print(newFile2Data)   
             nf2.write(newFile2Data) #Writes out the new codon onto a text file called mutatedDNA.txt
@@ -64,11 +58,9 @@ if __name__ == "__main__":
     #Creation of variables to make the text documents easier to use in the functions
     filepath = "DNA.txt"
     normalDNA = "normalDNA.txt"
-    mutatedDNA = "SickledDNA.txt"
+    mutatedDNA = "mutatedDNA.txt"
     my_dict = { #Creation of the dictionary from which the codon's will be read and then printing out the value of the key
-
-
-        'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
+       'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
 
         'ACA':'T', 'ACC':'T', 'ACG':'T', 'ACT':'T',
 
@@ -99,16 +91,15 @@ if __name__ == "__main__":
         'TAC':'Y', 'TAT':'Y', 'TAA':'_', 'TAG':'_',
 
         'TGC':'C', 'TGT':'C', 'TGA':'_', 'TGG':'W',
-        
         }
     
    
-    #seq = ""
+    #seq = "ATTATTATTYUIIUYIYUIATTIUYATTIUYUYATTTTATATTTATAATTTTATATTTATAT"
     #translate(seq, my_dict)
     
     mutate(filepath) #Calls the mutate function to start the replacement of the letters
     txtTranslate() #Calls the translate function with the two new text files to start the amino acid translation
-inputfile ="DNA_sequence_.txt"
+inputfile ="DNA_sequence.txt"
 f = open(inputfile, "r")
 seq = f.read()
   
@@ -121,7 +112,7 @@ import random
 def generateDNASequence():
 	
 	# list of available DNA bases
-	l = ['C', 'A', 'G', 'T', 'U']
+	l = ['C', 'A', 'G', 'T']
 	res = ""
 	for i in range(0, 40):
 		# creating the DNA strand by appending
@@ -137,7 +128,7 @@ def applyGammaRadiation(dna):
 	cdna = ''
 	
 	# list of available DNA bases
-	l = ['C', 'A', 'G', 'T', 'U']
+	l = ['C', 'A', 'G', 'T']
 	
 	# if the possibility of mutation generated randomly
 	# is >100 then mutation happens
@@ -145,7 +136,7 @@ def applyGammaRadiation(dna):
 		
 		# the position where mutation will take place
 		# is chosen randomly
-		changepos = random.randint(0, 49)
+		changepos = random.randint(0, 39)
 		dl = []
 		
 		# the characters in DNA strand is converted to list
@@ -174,20 +165,24 @@ def applyGammaRadiation(dna):
 		# the characters in the cl list is converted to string again
 		# this is the new mutated DNA string
 		cdna = ''.join([str(e) for e in cl])
-	
+		if dna not in cdna:
+			cdna[dna] = 1
+		else:
+			cdna += 1
 
 # function to detect mutation
 def detectMutation(dna, cdna):
-	count = 3
+	count = 0
+
 	
 	# x and y take each character in dna and cdna
 	# for character by character comparison
-	for x, y in zip(dna, cdna):
+	for x, y in zip (dna, cdna):
 		
 		# if the character at the same index match
 		# then the count is increased
 		if x == y:
-			count = count + 2
+			count = count + 1
 		
 		# incase of mismatch the loop is broken
 		else:
@@ -199,19 +194,26 @@ def detectMutation(dna, cdna):
 
 
 dna = generateDNASequence()
-print(dna+" (Original DNA)")
+print('dna' .format('Original DNA'))
 cdna = applyGammaRadiation(dna)
-print(cdna+" (DNA after radiation)")
-count = detectMutation(dna, cdna)
+print('cdna' .format('DNA after radiation'))
+#mutatedDNA list
+mutatedDNA = ['G','T','G' ,'C','A','C']
+count = mutatedDNA.count('V')
+print ('Count of V is:',count)
+count = mutatedDNA.count('H')
+print ('Count of H is:',count)
 
-# if count=30 it means all the characters of the 2 strands match
+# if count=40 it means all the characters of the 2 strands match
 # hence no mutation
-if count == 30:
-	print("Mutation not detected")
+if count == 40:
+	print("No Mutation detected")
+
+# if count is less than 50
+# it means mutation has occurred
 else:
 	
 	# ^ denotes the position of mutation
 	pos = "^"
-	print(pos.rjust(count+2))
-	print("Mutation detected at pos = ", (count+2))
-
+	print(pos.rjust(count+1))
+	print("Mutation detected at pos = ", (count+1))
