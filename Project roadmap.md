@@ -28,7 +28,8 @@ Sprint #2: Checkmarks when completed
 
 -[X] Update the progress of the project with checkmarks after completing the task in the roadmap file.
 
--[] Paste the URL's to code commits.
+-[X] Paste the URL's to code commits.
+https://github.com/ksu-hmi/PySickleCell/commits/main
 
 ***
 Sprint #3: Checkmarks when completed
