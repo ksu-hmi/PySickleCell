@@ -1,5 +1,7 @@
+#This machine learning program is useful for predicting sickle cell or other blood disorders
+#This will also classification problems the servity of the person sickle cell
+#First you will install all usefull for the library
 import pandas as pd
-
 df = pd.read_excel(r"C:\Users\haree\OneDrive - Western Kentucky University\Desktop\annotations.xlsx")
 print(df)
 def translate(seq, dict): #translate takes the sequence of codon's as argument and the dictionary from which the amino acids will be fetched
