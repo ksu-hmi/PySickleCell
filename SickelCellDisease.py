@@ -60,37 +60,24 @@ if __name__ == "__main__":
     normalDNA = "normalDNA.txt"
     mutatedDNA = "mutatedDNA.txt"
     my_dict = { #Creation of the dictionary from which the codon's will be read and then printing out the value of the key
-       'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
+    "ATT" : "Isoleucine",
+        "ATC" : "Isoleucine",
+        "ATA" : "Isoleucine",
+        "CTT" : "Leucine",
+        "CTC" : "Leucine",
+        "CTA" : "Leucine",
+        "CTG" : "Leucine",
+        "TTA" : "Leucine",
+        "TTG" : "Leucine",
+        "CAC" : "Valine",
+        "GTG" : "Valine",
+        "GTA" : "Valine",
+        "GTG" : "Valine",
+        "TTT" : "Phenylalanine",
+        "TTC" : "Phenylalanine",
+        "ATG" : "Methionine",
+        "X"   : "X"
 
-        'ACA':'T', 'ACC':'T', 'ACG':'T', 'ACT':'T',
-
-        'AAC':'N', 'AAT':'N', 'AAA':'K', 'AAG':'K',
-
-        'AGC':'S', 'AGT':'S', 'AGA':'R', 'AGG':'R',                 
-
-        'CTA':'L', 'CTC':'L', 'CTG':'L', 'CTT':'L',
-
-        'CCA':'P', 'CCC':'P', 'CCG':'P', 'CCT':'P',
-
-        'CAC':'H', 'CAT':'H', 'CAA':'Q', 'CAG':'Q',
-
-        'CGA':'R', 'CGC':'R', 'CGG':'R', 'CGT':'R',
-
-        'GTA':'V', 'GTC':'V', 'GTG':'V', 'GTT':'V',
-
-        'GCA':'A', 'GCC':'A', 'GCG':'A', 'GCT':'A',
-
-        'GAC':'D', 'GAT':'D', 'GAA':'E', 'GAG':'E',
-
-        'GGA':'G', 'GGC':'G', 'GGG':'G', 'GGT':'G',
-
-        'TCA':'S', 'TCC':'S', 'TCG':'S', 'TCT':'S',
-
-        'TTC':'F', 'TTT':'F', 'TTA':'L', 'TTG':'L',
-
-        'TAC':'Y', 'TAT':'Y', 'TAA':'_', 'TAG':'_',
-
-        'TGC':'C', 'TGT':'C', 'TGA':'_', 'TGG':'W',
         }
     
    
@@ -199,10 +186,9 @@ cdna = applyGammaRadiation(dna)
 print('cdna' .format('DNA after radiation'))
 #mutatedDNA list
 mutatedDNA = ['G','T','G' ,'C','A','C']
-count = mutatedDNA.count('V')
-print ('Count of V is:',count)
-count = mutatedDNA.count('H')
-print ('Count of H is:',count)
+count = mutatedDNA.count('Valine')
+print ('Count of Valine is:',count)
+
 
 # if count=40 it means all the characters of the 2 strands match
 # hence no mutation
