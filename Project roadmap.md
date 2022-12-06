@@ -35,6 +35,6 @@ https://github.com/ksu-hmi/PySickleCell/commits/main (Done)
 Sprint #3: Checkmarks when completed
 ***  
 
--[] Present a PPT.
+-[X] Present a PPT.
 
--[] Each team member should upload a copy of PPT in Github repository.
+-[X] Each team member should upload a copy of PPT in Github repository.
